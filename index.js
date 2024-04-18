@@ -84,7 +84,15 @@ async function question5() {
   });
   return handleAnswer(answers.question_5 === 'kaiser');
 }
-
+async function question6() {
+  const answers = await inquirer.prompt({
+    name: 'question_6',
+    type: 'list',
+    message: 'whats the name of my mom?\n',
+    choices: ['veronica', 'veda', 'carolina', 'ivana'],
+  });
+  return handleAnswer(answers.question_5 === 'veda');
+}
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner('Checking answer...').start();
   await sleep();
@@ -115,4 +123,5 @@ await question2();
 await question3();
 await question4();
 await question5();
+await question6();
 winner();
